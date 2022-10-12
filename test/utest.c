@@ -57,7 +57,7 @@
 #define FRAME_LOGLEVEL              LOG_LEVEL_1
 
 #ifndef _WIN32
-#if defined(__APPLE__)
+#if defined(__APPLE__) || defined(__loongarch__)
 #include <unistd.h>
 #define _lseeki64 lseek
 #else

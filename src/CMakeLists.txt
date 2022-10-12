@@ -22,6 +22,9 @@ if("${CMAKE_SYSTEM_PROCESSOR}" MATCHES "aarch64" OR "${CMAKE_SYSTEM_PROCESSOR}" 
   list(APPEND DIR_ARM64_SRC "./armv8/itrans_arm64.c")
   include_directories("./armv8")
   enable_language(ASM)
+elseif("${CMAKE_SYSTEM_PROCESSOR}" MATCHES "loongarch64")
+  message("-- enable_loongarch64")
+  # add source about loongarch
 else()
   aux_source_directory(./sse DIR_X86_SRC)
   aux_source_directory(./avx2 DIR_X86_256_SRC)
