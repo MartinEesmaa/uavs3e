@@ -1217,7 +1217,7 @@ void com_md5_img(com_img_t *img, u8 digest[16])
     com_md5_finish(&md5, digest);
 }
 
-void init_scan(u16 *scan, int size_x, int size_y)
+void uavs3e_init_scan(u16 *scan, int size_x, int size_y)
 {
     int x, y, l, pos, num_line;
     pos = 0;
@@ -1260,7 +1260,7 @@ int com_scan_tbl_init()
         for (x = 0; x < MAX_CU_LOG2; x++) {
             size_x = 1 << (x + 1);
             com_tbl_scan[x][y] = (u16 *)com_malloc(size_y * size_x * sizeof(u16));
-            init_scan(com_tbl_scan[x][y], size_x, size_y);
+            uavs3e_init_scan(com_tbl_scan[x][y], size_x, size_y);
         }
     }
  

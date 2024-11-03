@@ -51,7 +51,7 @@ typedef struct uavs3e_bs_t {
 
 #define BS_GET_BYTES(bs)    (int)((bs)->cur - (bs)->start)
 
-void bs_init    (bs_t *bs, u8 *buf, u8 *buftmp, int size);
+void uavs3e_bs_init    (bs_t *bs, u8 *buf, u8 *buftmp, int size);
 int  bs_flush   (bs_t *bs);
 int  bs_write1  (bs_t *bs, int val);
 int  bs_write   (bs_t *bs, u32 val, int len);

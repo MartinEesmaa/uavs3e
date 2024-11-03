@@ -1097,7 +1097,7 @@ void *enc_pic_thread(enc_pic_t *ep, pic_thd_param_t *p)
 
     /* Bit-stream re-writing (START) */
     bs_t bs;
-    bs_init(&bs, p->bs_buf, ep->bs_buf_demulate, MAX_BS_BUF);
+    uavs3e_bs_init(&bs, p->bs_buf, ep->bs_buf_demulate, MAX_BS_BUF);
 
     if (pichdr->slice_type == SLICE_I) {
         ec_write_sqh(&bs, &info->sqh);
@@ -1117,7 +1117,7 @@ void *enc_pic_thread(enc_pic_t *ep, pic_thd_param_t *p)
 
     p->total_bytes = BS_GET_BYTES(&bs);
 
-    bs_init(&bs, bs.cur, bs.buftmp, ((int)(bs.end - bs.cur)) + 1);
+    uavs3e_bs_init(&bs, bs.cur, bs.buftmp, ((int)(bs.end - bs.cur)) + 1);
 
     /* Encode patch header */
     ec_write_patch_hdr(&bs, &info->sqh, pichdr, &pathdr, 0);

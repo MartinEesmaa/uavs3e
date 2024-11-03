@@ -50,7 +50,7 @@ int bs_flush(bs_t *bs)
     return 0;
 }
 
-void bs_init(bs_t *bs, u8 *buf, u8 *buftmp, int size)
+void uavs3e_bs_init(bs_t *bs, u8 *buf, u8 *buftmp, int size)
 {
     bs->start     = buf;
     bs->cur       = buf;
