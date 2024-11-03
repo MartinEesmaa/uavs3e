@@ -864,7 +864,10 @@ void *enc_lcu_row(core_t *core, enc_lcu_row_t *row)
 
         /* end_of_picture_flag */
         lbac_enc_slice_end_flag(lbac, NULL, 0);
+        #if FFMPEG
+        #else
         printf("*");
+        #endif
         fflush(stdout);
 
 #define KEEP_CONST 0
@@ -1269,7 +1272,10 @@ void *uavs3e_create(enc_cfg_t *cfg, int *err)
     com_info_t *info;
     int pic_width, pic_height;
 
+    #if FFMPEG
+    #else
     printf("Version: %s_%s,  SHA-1: %s\n", VERSION_STR, VERSION_TYPE, VERSION_SHA1);
+    #endif
 
     h = (enc_ctrl_t *)com_malloc(sizeof(enc_ctrl_t));
     info = &h->info;

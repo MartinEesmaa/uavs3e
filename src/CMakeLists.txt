@@ -39,6 +39,13 @@ else()
     add_definitions(-DCOMPILE_10BIT=0)
 endif()
 
+if(${COMPILE_FFMPEG})
+    add_definitions(-DFFMPEG)
+    message("-- compile FFmpeg to avoid output messages")
+else()
+    message("-- normal CLI is on with messages")
+endif()
+
 set_source_files_properties(${DIR_UAVS3E_SRC} PROPERTIES COMPILE_FLAGS "${CMAKE_C_FLAGS} -fPIC -std=c99 -O3")
 set_source_files_properties(${DIR_X86_SRC} PROPERTIES COMPILE_FLAGS "${CMAKE_C_FLAGS} -fPIC -std=c99 -O3 -msse4.2")
 set_source_files_properties(${DIR_X86_256_SRC} PROPERTIES COMPILE_FLAGS "${CMAKE_C_FLAGS} -fPIC -std=c99 -O3 -mavx2")

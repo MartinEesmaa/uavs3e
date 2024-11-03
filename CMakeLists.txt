@@ -16,6 +16,13 @@ else()
     message("-- compile 8bit")
 endif()
 
+if(${COMPILE_FFMPEG})
+    add_definitions(-DFFMPEG)
+    message("-- compile FFmpeg to avoid output messages")
+else()
+    message("-- normal CLI is on with messages")
+endif()
+
 add_executable(uavs3enc ${DIR_SRC_TEST})
 
 target_link_libraries(uavs3enc m)
